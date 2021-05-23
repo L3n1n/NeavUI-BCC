@@ -63,6 +63,8 @@ GameTimeFrame:Hide()
 MinimapZoneTextButton:Hide()
 MinimapZoneTextButton:UnregisterAllEvents()
 
+MiniMapTracking:Hide()
+
     -- hide the durability frame (the armored man)
 
 --DurabilityFrame:Hide()
