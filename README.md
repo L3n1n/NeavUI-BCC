@@ -1,4 +1,4 @@
-# NeavUI-BCC
+# Neav UI BCC
 Neav UI for WoW Burning Crusade Classic.
 
 # Addons included
