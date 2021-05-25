@@ -2,23 +2,22 @@
 local _, nMinimap = ...
 
 nMinimap.Config = {
-    tab = {
-        show = false,
+	tab = {
+		show = true,
+		showAlways = true,
 
-        alphaMouseover = 1,
-        alphaNoMouseover = 0.55,
-        
-        showAlways = false,
-        showMinimapMouseover = true,
-        showBelowMinimap = false,
-    },
-	
+		showBelowMinimap = false,
+
+		-- Number of addons shown in the memory section of the info tooltip. Set to "nil" to show all.
+		numberOfAddons = nil,
+	},
+
 	classColor = {
 		border = true,
 	},
 
-    mouseover = {
-        zoneText = true,
-        instanceDifficulty = false,
-    },
+	mouseover = {
+		zoneText = true,
+		instanceDifficulty = false,
+	},
 }
