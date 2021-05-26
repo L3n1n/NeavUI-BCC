@@ -7,4 +7,4 @@ config.lua
 core.lua
 capture.lua
 clock.lua
-tab.lua
+tab.xml
