@@ -227,30 +227,30 @@ local function SkinTab(self)
 end
 
 local function ModChat(self)
-    local chat = _G[self]
+	local chat = _G[self]
 
-    if not cfg.chatOutline then
-        chat:SetShadowOffset(1, -1)
-    end
+	if not cfg.chatOutline then
+		chat:SetShadowOffset(1, -1)
+	end
 
-    if cfg.disableFade then
-        chat:SetFading(false)
-    end
+	if cfg.disableFade then
+		chat:SetFading(false)
+	end
 
-    SkinTab(self)
+	SkinTab(self)
 
-    local font, fontsize, fontflags = chat:GetFont()
-    chat:SetFont(font, fontsize, cfg.chatOutline and "OUTLINE" or fontflags)
-    chat:SetClampedToScreen(true)
+	local font, fontsize, fontflags = chat:GetFont()
+	chat:SetFont(font, fontsize, cfg.chatOutline and "OUTLINE" or fontflags)
+	chat:SetClampedToScreen(true)
 
-    chat:SetMaxResize(UIParent:GetWidth(), UIParent:GetHeight())
-    chat:SetMinResize(150, 25)
+	chat:SetMaxResize(UIParent:GetWidth(), UIParent:GetHeight())
+	chat:SetMinResize(150, 25)
 
-    if self ~= "ChatFrame2" then
-        chat.AddMessage = FCF_AddMessage
-    end
+	if self ~= "ChatFrame2" then
+		chat.AddMessage = FCF_AddMessage
+	end
 
-    for _, texture in pairs({
+	for _, texture in pairs({
 		--"ButtonFrameBackground",
 		--"ButtonFrameTopLeftTexture",
 		--"ButtonFrameBottomLeftTexture",
@@ -263,35 +263,38 @@ local function ModChat(self)
 		"ButtonFrameUpButton",
 		"ButtonFrameDownButton",
 		"ButtonFrameBottomButton",
-    }) do
-		_G[self..texture]:Hide()
-		
-    end
+	}) do
+		-- _G[self..texture]:Hide()
+		_G[self..texture]:SetAlpha(0)
+		_G[self..texture]:EnableMouse(false)
+	end
 
 	-- Modify the editbox
 
 	for k = 3, 5 do
-        select(k, _G[self.."EditBox"]:GetRegions()):SetTexture(nil)
-    end
+		select(k, _G[self.."EditBox"]:GetRegions()):SetTexture(nil)
+	end
 
-	ChatFrame1EditBox:SetAltArrowKeyMode(false)
-	ChatFrame1EditBox:ClearAllPoints()
-	ChatFrame1EditBox:SetPoint('BOTTOMLEFT', ChatFrame1, 'TOPLEFT', 2, 33)
-	ChatFrame1EditBox:SetPoint('BOTTOMRIGHT', ChatFrame1, 'TOPRIGHT', 0, 33)
-	Mixin(ChatFrame1EditBox, BackdropTemplateMixin)
-	ChatFrame1EditBox:SetBackdrop({
+	_G[self.."EditBox"]:SetAltArrowKeyMode(false)
+
+	local tabHeight = _G[self.."Tab"]:GetHeight()
+	_G[self.."EditBox"]:ClearAllPoints()
+	_G[self.."EditBox"]:SetPoint("BOTTOMLEFT", chat, "TOPLEFT", 0, tabHeight + 5)
+	_G[self.."EditBox"]:SetPoint("BOTTOMRIGHT", chat, "TOPRIGHT", 0, tabHeight + 5)
+	Mixin(_G[self.."EditBox"], BackdropTemplateMixin)
+	_G[self.."EditBox"]:SetBackdrop({
 		bgFile = 'Interface\\Buttons\\WHITE8x8',
 		insets = { 
 			left = 3, right = 3, top = 2, bottom = 2 
 		},
 	})
 
-	ChatFrame1EditBox:SetBackdropColor(0, 0, 0, 0.5)
-	ChatFrame1EditBox:CreateBeautyBorder(11)
-	ChatFrame1EditBox:SetBeautyBorderPadding(-2, -1, -2, -1, -2, -1, -2, -1)
+	_G[self.."EditBox"]:SetBackdropColor(0, 0, 0, 0.5)
+	_G[self.."EditBox"]:CreateBeautyBorder(11)
+	_G[self.."EditBox"]:SetBeautyBorderPadding(-2, -1, -2, -1, -2, -1, -2, -1)
 
 	if (cfg.enableBorderColoring) then
-		ChatFrame1EditBox:SetBeautyBorderTexture('white')
+		_G[self.."EditBox"]:SetBeautyBorderTexture('white')
 
 		hooksecurefunc('ChatEdit_UpdateHeader', function(editBox)
 			local type = editBox:GetAttribute('chatType')
@@ -300,7 +303,7 @@ local function ModChat(self)
 			end
 
 			local info = ChatTypeInfo[type]
-			ChatFrame1EditBox:SetBeautyBorderColor(info.r, info.g, info.b)
+			_G[self.."EditBox"]:SetBeautyBorderColor(info.r, info.g, info.b)
 		end)
 	end
 end
