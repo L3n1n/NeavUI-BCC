@@ -78,12 +78,19 @@ local menuList = {
         end,
         notCheckable = true,
     },
-
     {
         text = RAID,
         icon = 'Interface\\TARGETINGFRAME\\UI-TargetingFrame-Skull',
         func = function()
             securecall(ToggleFriendsFrame, 4)
+        end,
+        notCheckable = true,
+    },
+	{
+        text = KEYRING,
+        icon = 'Interface\\ContainerFrame\\KeyRing-Bag-Icon',
+        func = function()
+			ToggleBag(KEYRING_CONTAINER)
         end,
         notCheckable = true,
     },
@@ -96,8 +103,7 @@ local menuList = {
         tooltipTitle = HELP_BUTTON,
         tooltipText = NEWBIE_TOOLTIP_HELP,
         notCheckable = true,
-    },
-
+    }
 }
 
 local addonMenuTable = {
