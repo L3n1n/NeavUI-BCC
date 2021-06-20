@@ -1,0 +1,44 @@
+## Interface: 20501
+## Title: oUF |cff1a9fc0BCC|r
+## Author: Haste, lightspark, p3lim, Rainrider
+## Version: 2.5.1-r4-8947108
+## Notes: Unit frame framework. Does nothing by itself.
+## OptionalDeps: Clique
+## X-oUF: oUF
+
+## X-Curse-Project-ID: 21187
+## X-WoWI-ID: 9994
+
+init.lua
+private.lua
+ouf.lua
+events.lua
+factory.lua
+blizzard.lua
+units.lua
+colors.lua
+elements\assistantindicator.lua
+elements\auras.lua
+elements\castbar.lua
+elements\classpower.lua
+elements\combatindicator.lua
+elements\grouproleindicator.lua
+elements\health.lua
+elements\leaderindicator.lua
+elements\phaseindicator.lua
+elements\portrait.lua
+elements\power.lua
+elements\powerprediction.lua
+elements\pvpindicator.lua
+elements\questindicator.lua
+elements\raidroleindicator.lua
+elements\raidtargetindicator.lua
+elements\range.lua
+elements\readycheckindicator.lua
+elements\restingindicator.lua
+elements\resurrectindicator.lua
+elements\stagger.lua
+elements\tags.lua
+elements\threatindicator.lua
+elements\totems.lua
+finalize.lua
