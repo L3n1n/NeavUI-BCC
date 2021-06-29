@@ -467,6 +467,7 @@ do
 		backdrop:SetParent(UIParent)
 		backdrop:Hide()
 
+		Mixin(backdrop, BackdropTemplateMixin)
 		backdrop:SetBackdrop(_BACKDROP)
 		backdrop:SetFrameStrata"TOOLTIP"
 		backdrop:SetAllPoints(target)
@@ -743,6 +744,7 @@ do
 				if(style ~= "__INITIAL") then
 					if(not data[numStyles]) then
 						local box = CreateFrame("Frame", nil, scrollchild)
+						Mixin(box, BackdropTemplateMixin)
 						box:SetBackdrop(backdrop)
 						box:SetBackdropColor(.1, .1, .1, .5)
 						box:SetBackdropBorderColor(.3, .3, .3, 1)
@@ -795,6 +797,7 @@ do
 						if(not rows[numFrames]) then
 							local row = CreateFrame("Button", nil, box)
 
+							Mixin(row, BackdropTemplateMixin)
 							row:SetBackdrop(backdrop)
 							row:SetBackdropBorderColor(.3, .3, .3)
 							row:SetBackdropColor(.1, .1, .1, .5)
