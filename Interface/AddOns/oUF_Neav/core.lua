@@ -836,11 +836,6 @@ local function CreateUnitLayout(self, unit)
 
     if unit == "pet" then
         self:SetSize(175, 42)
-		
-		local PetHappiness = CreateFrame('Frame', "$parentHealth", self)
-		PetHappiness:SetSize(20, 20)
-		self.PetHappiness = PetHappiness
-		self.PetHappiness:SetPoint("TOPRIGHT", self.Texture, "TOPRIGHT", 12, -20)
 
         if not config.units[ns.cUnit(unit)].disableAura then
             self.Debuffs = CreateFrame("Frame", "$parentDebuffs", self)

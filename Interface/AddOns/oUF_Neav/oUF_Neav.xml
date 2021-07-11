@@ -70,7 +70,6 @@
     <Script file="modules\offline.lua"/>
     <Script file="modules\portraittimers.lua"/>
     <Script file="modules\smartthreat.lua"/>
-    <Script file="modules\oUF_PetHappiness\oUF_PetHappiness.lua"/>
     <Script file="modules\oUF_MovableFrames\movable.lua"/>
 
     <!--
